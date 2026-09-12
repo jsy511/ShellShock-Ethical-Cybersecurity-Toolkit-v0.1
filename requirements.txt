@@ -1,0 +1,2 @@
+# ShellShock dependencies
+# Version 0.1.0 currently uses Python's standard library only.
