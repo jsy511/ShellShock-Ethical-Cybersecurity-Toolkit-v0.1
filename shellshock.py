@@ -3,10 +3,15 @@
 """
 ShellShock
 Ethical Cybersecurity Toolkit
-Version 0.1
+Version 0.1.0
 """
 
-VERSION = "0.1"
+import config
+from modules.network import network_menu
+from modules.web import web_menu
+from modules.crypto import crypto_menu
+from modules.forensics import forensics_menu
+from modules.ctf import ctf_menu
 
 
 LOGO = r"""
@@ -21,7 +26,7 @@ LOGO = r"""
 
 def show_banner():
     print(LOGO)
-    print(f"                 ShellShock v{VERSION}")
+    print(f"                 {config.NAME} v{config.VERSION}")
     print("          Ethical Cybersecurity Toolkit")
     print()
 
@@ -37,6 +42,15 @@ def show_menu():
     print()
 
 
+def show_help():
+    print("\n=== ShellShock Help ===")
+    print(config.DESCRIPTION)
+    print()
+    print("Use ShellShock only for learning, CTFs,")
+    print("and systems you are authorised to test.")
+    print()
+
+
 def main():
     show_banner()
 
@@ -46,23 +60,22 @@ def main():
         choice = input("ShellShock > ").strip()
 
         if choice == "1":
-            print("\n[Network] Module coming soon...\n")
+            network_menu()
 
         elif choice == "2":
-            print("\n[Web] Module coming soon...\n")
+            web_menu()
 
         elif choice == "3":
-            print("\n[Crypto] Module coming soon...\n")
+            crypto_menu()
 
         elif choice == "4":
-            print("\n[Forensics] Module coming soon...\n")
+            forensics_menu()
 
         elif choice == "5":
-            print("\n[CTF] Module coming soon...\n")
+            ctf_menu()
 
         elif choice == "6":
-            print("\nShellShock is designed for ethical cybersecurity")
-            print("learning and authorised testing only.\n")
+            show_help()
 
         elif choice == "0":
             print("\nGoodbye! 👋")
